@@ -1,0 +1,12 @@
+w1	w2	w3	w4	w5	l5	r5
+ambry	fldxt	pucks	vejoz	whing	abcdefghijklmnoprstuvwxyz	q
+ampyx	fconv	hdqrs	bejig	klutz	abcdefghijklmnopqrstuvxyz	w
+ampyx	fconv	hdqrs	bewig	klutz	abcdefghiklmnopqrstuvwxyz	j
+ampyx	flung	hdqrs	twick	vejoz	acdefghijklmnopqrstuvwxyz	b
+bangy	flump	hdqrs	twick	vejoz	abcdefghijklmnopqrstuvwyz	x
+bawke	fldxt	gconv	jimpy	qursh	abcdefghijklmnopqrstuvwxy	z
+bench	fldxt	grosz	jimpy	quawk	abcdefghijklmnopqrstuwxyz	v
+bewig	fconv	hdqrs	japyx	klutz	abcdefghijklnopqrstuvwxyz	m
+braws	fldxt	nymph	quick	vejoz	abcdefhijklmnopqrstuvwxyz	g
+brigs	fldxt	nymph	quawk	vejoz	abdefghijklmnopqrstuvwxyz	c
+brock	japyx	seqwl	vingt	zhmud	abcdeghijklmnopqrstuvwxyz	f
