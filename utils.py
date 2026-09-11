@@ -9,6 +9,53 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 
+# load input data
+
+def load_input_data(all_unique_letters:bool = True):
+
+    # load the data
+    word_df = pd.read_csv(filepath_or_buffer=  'words_alpha.txt', header = None, names = ['word'], dtype = str)
+    # format as str
+    word_df['word'] = word_df['word'].astype(str)
+    # convert to lowercase
+    word_df['lcase'] = word_df['word'].str.lower()
+    # count letters
+    word_df['n_letters'] = word_df['word'].str.len()
+    # sort letters
+    word_df['letters_sorted'] = word_df['lcase'].map(lambda x: ''.join(sorted(x)))
+    # create a set
+    word_df['lcase_set'] = word_df['lcase'].map(lambda x: set(x))
+    # count unique letters
+    word_df['n_unique_chars'] = word_df['lcase_set'].map(lambda x: len(x))
+
+
+    # drop duplicates
+    word_df = word_df.drop_duplicates(subset = ['letters_sorted']).copy()
+    
+    
+
+    # byte encode words
+    word_df['word_byte'] = word_df['word'].map(byte_encode_words)
+
+    if all_unique_letters:
+        word_df = word_df.loc[(word_df['n_unique_chars'] == 5) & (word_df['n_letters'] == 5), :]    
+
+    # sort and create a new index
+    word_df = word_df.sort_values(by = 'lcase').reset_index(drop = True)
+    # word id
+    word_df['word_id'] = range(0, word_df.shape[0])
+
+    # word id list
+    word_id_list = word_df['word_id'].to_numpy(dtype = np.int16)
+
+    # word byte list, array, dict
+    word_byte_list = word_df['word_byte'].tolist()
+    word_byte_array = np.array(word_byte_list, dtype = np.int32)
+    word_byte_to_word_dict = {wb:lcase for wb, lcase in zip(word_df['word_byte'], word_df['lcase'])}
+
+        
+    return word_df, word_id_list, word_byte_list, word_byte_array, word_byte_to_word_dict
+
 # define a function to load a pickle
 def load_pickle(file_name):
     if os.path.exists(file_name):
