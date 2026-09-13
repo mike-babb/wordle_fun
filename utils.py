@@ -52,7 +52,6 @@ def load_input_data(all_unique_letters:bool = True):
     word_byte_list = word_df['word_byte'].tolist()
     word_byte_array = np.array(word_byte_list, dtype = np.int32)
     word_byte_to_word_dict = {wb:lcase for wb, lcase in zip(word_df['word_byte'], word_df['lcase'])}
-
         
     return word_df, word_id_list, word_byte_list, word_byte_array, word_byte_to_word_dict
 
